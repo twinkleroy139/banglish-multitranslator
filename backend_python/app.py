@@ -3,9 +3,19 @@ import os
 import re
 import requests
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from deep_translator import GoogleTranslator
 
 app = FastAPI()
+
+# Enable CORS for external frontend calls
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 DICT_PATH = os.path.join(os.path.dirname(__file__), "dictionary.json")
 dictionary = {}
@@ -55,13 +65,21 @@ def banglish_to_bangla_sentence(text: str) -> str:
 
     return sentence.strip()
 
+@app.get("/")
+def home():
+    return {
+        "status": "online",
+        "message": "Banglish Translation Engine API is running successfully!",
+        "endpoint": "/translate?text=ami&from_lang=auto&to_lang=en"
+    }
+
 @app.get("/translate")
 def translate(text: str, from_lang: str = "auto", to_lang: str = "en"):
     text_clean = text.strip()
     if not text_clean:
         return {"match_found": False, "message": "Empty query"}
 
-    # Custom Dictionary Check (if translating standard Banglish -> English/Bangla)
+    # Custom Dictionary Check
     if from_lang in ["auto", "banglish"] and text_clean.lower() in dictionary:
         return {
             "match_found": True,
@@ -84,7 +102,7 @@ def translate(text: str, from_lang: str = "auto", to_lang: str = "en"):
                 }
             }
 
-        # Standard Direct Translation (e.g. Spanish to Arabic, English to French)
+        # Standard Direct Translation
         translated_text = GoogleTranslator(source=from_lang, target=to_lang).translate(text_clean)
         return {
             "match_found": True,
