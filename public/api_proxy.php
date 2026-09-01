@@ -10,7 +10,7 @@ if (empty($query)) {
     exit;
 }
 
-$python_url = "http://127.0.0.1:5000/translate?text={$query}&from_lang={$from}&to_lang={$to}";
+$python_url = "https://banglish-multitranslator.onrender.com/translate?text={$query}&from_lang={$from}&to_lang={$to}";
 
 $ch = curl_init($python_url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
