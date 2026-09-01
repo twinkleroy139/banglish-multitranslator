@@ -4,51 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universal Multi-Language Translator</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Google Translate Style - Universal Multi-Translator</h1>
-        <button class="theme-toggle-btn" id="themeToggleBtn">🌙 Dark Mode</button>
-    </div>
-
-    <div class="translator-card">
-        <div class="lang-tabs">
-            <select id="fromLang">
-                <option value="auto" selected>Banglish / Auto Detect</option>
-                <option value="en">English</option>
-                <option value="bn">Bangla</option>
-                <option value="es">Spanish</option>
-                <option value="fr">French</option>
-                <option value="de">German</option>
-                <option value="ar">Arabic</option>
-                <option value="hi">Hindi</option>
-                <option value="ja">Japanese</option>
-            </select>
-
-            <button class="swap-btn" id="swapBtn">⇄</button>
-
-            <select id="toLang">
-                <option value="en" selected>English</option>
-                <option value="bn">Bangla</option>
-                <option value="es">Spanish</option>
-                <option value="fr">French</option>
-                <option value="de">German</option>
-                <option value="ar">Arabic</option>
-                <option value="hi">Hindi</option>
-                <option value="ja">Japanese</option>
-            </select>
-        </div>
-
-        <div class="panels-container">
-            <div class="panel panel-left">
-                <textarea id="inputText" placeholder="Type text or Banglish here..."></textarea>
+    <div class="app-wrapper">
+        <header class="header">
+            <div class="logo-area">
+                <span class="logo-icon">🌐</span>
+                <h1>Banglish Multi-Translator</h1>
             </div>
-            <div class="panel panel-right">
-                <div class="output-text" id="outputText">Translation will appear here...</div>
-                <span class="meta-tag" id="engineTag">Source: Idle</span>
+            <button class="theme-toggle-btn" id="themeToggleBtn">🌙 Dark Mode</button>
+        </header>
+
+        <main class="translator-card">
+            <div class="lang-tabs">
+                <select id="fromLang">
+                    <option value="auto" selected>Banglish / Auto Detect</option>
+                    <option value="en">English</option>
+                    <option value="bn">Bangla</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="ar">Arabic</option>
+                    <option value="hi">Hindi</option>
+                    <option value="ja">Japanese</option>
+                </select>
+
+                <button class="swap-btn" id="swapBtn" title="Swap Languages">⇄</button>
+
+                <select id="toLang">
+                    <option value="en" selected>English</option>
+                    <option value="bn">Bangla</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="ar">Arabic</option>
+                    <option value="hi">Hindi</option>
+                    <option value="ja">Japanese</option>
+                </select>
             </div>
-        </div>
+
+            <div class="panels-container">
+                <div class="panel panel-left">
+                    <textarea id="inputText" placeholder="Type text or Banglish here..."></textarea>
+                </div>
+                <div class="panel panel-right">
+                    <div class="output-text" id="outputText">Translation will appear here...</div>
+                    <span class="meta-tag" id="engineTag">Source: Idle</span>
+                </div>
+            </div>
+        </main>
     </div>
 
     <script>
