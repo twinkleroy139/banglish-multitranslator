@@ -10,13 +10,12 @@ if (empty($query)) {
     exit;
 }
 
-$python_url = "https://banglish-multitranslator.onrender.com/translate?text={$query}&from_lang={$from}&to_lang={$to}";
+$python_url = "http://127.0.0.1:8000/translate?text={$query}&from_lang={$from}&to_lang={$to}";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $python_url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
 $response = curl_exec($ch);
 $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -28,6 +27,6 @@ if ($http_code === 200 && $response !== false) {
     http_response_code(500);
     echo json_encode([
         "status" => "error",
-        "message" => "Could not reach Python translation engine."
+        "message" => "Could not reach internal Python translation engine."
     ]);
 }
