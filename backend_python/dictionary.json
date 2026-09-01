@@ -1,0 +1,22 @@
+{
+  "ami": {
+    "english": "I",
+    "bangla": "আমি"
+  },
+  "tmi": {
+    "english": "You",
+    "bangla": "তুমি"
+  },
+  "vlobasa": {
+    "english": "Love",
+    "bangla": "ভালোবাসা"
+  },
+  "bhalo": {
+    "english": "Good",
+    "bangla": "ভালো"
+  },
+  "dhanyabad": {
+    "english": "Thank you",
+    "bangla": "ধন্যবাদ"
+  }
+}

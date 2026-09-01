@@ -1,0 +1,12 @@
+# Environment Variables (SENSITIVE DATA)
+.env
+
+# Python Cache & Virtual Environments
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# System Files
+.DS_Store
+Thumbs.db
